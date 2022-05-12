@@ -10,7 +10,7 @@ import movies from './reducers';
 
 
 const store = createStore(movies)
-console.log(store);
+// console.log(store);
 // console.log(store.getState());
 
 // store.dispatch({
