@@ -4,8 +4,24 @@ import Navbar from './Navbar'
 import MovieCard from './MovieCard'
 
 
-function App() {
-  return (
+class App extends React.Component {
+ componentDidMount(){
+   const {store} = this.props
+   store.subscribe(()=>{
+     console.log("updated");
+     this.forceUpdate()
+   })
+   store.dispatch({
+     type:"ADD_MOVIES",
+     movies:data
+   })
+
+   console.log("state",store.getState());
+ }
+  render(){
+console.log("render");
+    const movies = this.props.store.getState();
+    return (
     <div>
       <Navbar/>
     <div className='main'>
@@ -16,7 +32,7 @@ function App() {
  
  <div className="list">
  
-{data.map(movie=><MovieCard 
+{movies.map(movie=><MovieCard 
 movie={movie}
 key={movie.Title}
 />)}
@@ -27,6 +43,7 @@ key={movie.Title}
       </div>
     </div>
   )
+}
 }
 
 export default App;
