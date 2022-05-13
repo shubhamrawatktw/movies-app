@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom/client';
 import { createStore } from 'redux';
 import './index.css';
 import App from './component/App';
-import movies from './reducers';
+import rootReducer from './reducers';
 
 
 
 
 
-const store = createStore(movies)
+const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 // console.log(store);
 // console.log(store.getState());
 
